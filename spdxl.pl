@@ -27,13 +27,6 @@ This file is a script where many of the actions that spdxl executes are stored.
 ## really bad idea since important data can be gleaned or even
 ## determined with a high degree of certainty.
 
+use SPDXl;
 
-# Find an print any file we find recursively.
-my @directories_to_search = ".";
-
-use File::Find;
-find(\&wanted, @directories_to_search);
-
-sub wanted {
-  print $_ . "\n";
-}
+execfind($@) # execute the File::Find call
