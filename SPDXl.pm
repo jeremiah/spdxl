@@ -26,14 +26,14 @@ This file holds various subroutines that spdxl.pl reuses.
 sub execfind {
   # Find an print any file we find recursively.
   my @directories_to_search = ".";
-
   use File::Find;
-  find(\&wanted, @directories_to_search);
+  find(\&nogit, @directories_to_search);
 
-  sub wanted {
+  sub nogit {
+    my @found = ();
     /^\.git.*\z/s && ($File::Find::prune = 1)
       ||
-      print $File::Find::name . "\n";
+      $File::Find::name;
   }
 }
 

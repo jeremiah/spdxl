@@ -61,6 +61,43 @@ GPLv3
 ## really bad idea since important data can be gleaned or even
 ## determined with a high degree of certainty.
 
-use SPDXl;
+use Path::Tiny;
+use File::Find;
+use File::Slurp;
+use feature "say";
+no warnings 'experimental::smartmatch';
 
-execfind($@) # execute the File::Find call
+my $git_dir = path("./.git/");
+if (-e $git_dir) {
+  # handle the git dir
+};
+
+my @directories_to_search = ".";
+find(\&nogit, @directories_to_search);
+
+my @files;
+sub nogit {
+  /^\.git.*\z/s && ($File::Find::prune = 1)
+    ||
+    push @files,  $File::Find::name;
+    # print $File::Find::name . "\n";
+}
+
+# list of files names that match
+my @licenses = map { $_ } grep /^\.\/(?:LICEN[CS]E|COPYING)$/, @files;
+
+my @license = read_file($licenses[0]);
+my @copying = read_file($licenses[1]);
+
+if (@license ~~ @copying && @copying ~~ @license) {
+  say "a and b are deep copies of each other";
+}
+elsif (@license ~~ @copying) {
+  say "a smartmatches in b";
+}
+elsif (@copying ~~ @license) {
+  say "b smartmatches in a";
+}
+else {
+  say "a and b don't smartmatch each other at all";
+}
