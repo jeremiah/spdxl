@@ -17,7 +17,8 @@ our $VERSION = '0.1.0';
 
 =head1 SYNOPSIS
 
-This file is a script where many of the actions that spdxl executes are stored. 
+This file is a script where many of the actions that spdxl executes
+are stored.
 
 =cut
 
@@ -28,5 +29,16 @@ This file is a script where many of the actions that spdxl executes are stored.
 ## determined with a high degree of certainty.
 
 use SPDXl;
+use Getopt::Long;
+use Pod::Usage;
 
-execfind($@) # execute the File::Find call
+# command line options
+my ($Dir);
+GetOptions
+  (
+   "Dir|D=s" => \$Dir,
+  );
+
+unless (-e $Dir) { die "Can't find $Dir\n" }
+execfind($Dir) # execute the File::Find call
+

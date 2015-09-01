@@ -21,8 +21,6 @@ This file holds various subroutines that spdxl.pl reuses.
 
 =cut
 
-# Handle this as an argument to the script?
-
 sub execfind {
   # Find an print any file we find recursively.
   my @directories_to_search = ".";
@@ -31,7 +29,8 @@ sub execfind {
   find(\&wanted, @directories_to_search);
 
   sub wanted {
-    /^\.git.*\z/s && ($File::Find::prune = 1)
+    /^\.git.*\z/s  # skip git dirs
+      && ($File::Find::prune = 1)
       ||
       print $File::Find::name . "\n";
   }
