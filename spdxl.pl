@@ -64,7 +64,8 @@ GPLv3
 
 use Path::Tiny;
 use File::Find;
-use File::Slurp;
+use File::Compare;
+use autodie;
 use feature "say";
 no warnings 'experimental::smartmatch';
 
@@ -81,24 +82,15 @@ sub nogit {
   /^\.git.*\z/s && ($File::Find::prune = 1)
     ||
     push @files,  $File::Find::name;
-    # print $File::Find::name . "\n";
 }
 
 # list of files names that match
 my @licenses = map { $_ } grep /^\.\/(?:LICEN[CS]E|COPYING)$/, @files;
-
-my @license = read_file($licenses[0]);
-my @copying = read_file($licenses[1]);
-
-if (@license ~~ @copying && @copying ~~ @license) {
-  say "a and b are deep copies of each other";
-}
-elsif (@license ~~ @copying) {
-  say "a smartmatches in b";
-}
-elsif (@copying ~~ @license) {
-  say "b smartmatches in a";
+if (compare($licenses[0], $licenses[1]) == 0) {
+  say "files identical.";
 }
 else {
-  say "a and b don't smartmatch each other at all";
+  say "files not identical.";
+  use Text::Diff;
+  # magic
 }
