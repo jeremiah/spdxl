@@ -5,7 +5,7 @@ use strict;
 
 =head1 NAME
 
-spdxl.pm  -- script that attempts to identify FOSS licenses contained with files and directories.
+spdxl.pl  -- script that attempts to identify FOSS licenses contained with files and directories.
 
 =head1 VERSION
 
@@ -20,6 +20,40 @@ our $VERSION = '0.1.0';
 This file is a script where many of the actions that spdxl executes
 are stored.
 
+=head1 LICENSE
+
+GPLv3
+
+=over
+
+ spdxl  -- license identifier with reporting
+
+ SPDX license identifier: GPL-3.0
+
+ Copyright (C) 2015, Jeremiah C. Foster <jeremiah@jeremiahfoster.com>
+
+ This file is part of spdxl.
+
+ This program is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public License
+ as published by the Free Software Foundation; either version 3
+ of the License, or (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ Boston, MA 02110-1301, USA.
+
+ List of changes:
+ Aug. 2015, spdxl.pl, created file
+
+=back
+
 =cut
 
 ## TODO -- the first issue we'll face is the high likelyhood of being
@@ -28,17 +62,43 @@ are stored.
 ## really bad idea since important data can be gleaned or even
 ## determined with a high degree of certainty.
 
-use SPDXl;
-use Getopt::Long;
-use Pod::Usage;
+use Path::Tiny;
+use File::Find;
+use File::Slurp;
+use feature "say";
+no warnings 'experimental::smartmatch';
 
-# command line options
-my ($Dir);
-GetOptions
-  (
-   "Dir|D=s" => \$Dir,
-  );
+my $git_dir = path("./.git/");
+if (-e $git_dir) {
+  # handle the git dir
+};
 
-unless (-e $Dir) { die "Can't find $Dir\n" }
-execfind($Dir) # execute the File::Find call
+my @directories_to_search = ".";
+find(\&nogit, @directories_to_search);
 
+my @files;
+sub nogit {
+  /^\.git.*\z/s && ($File::Find::prune = 1)
+    ||
+    push @files,  $File::Find::name;
+    # print $File::Find::name . "\n";
+}
+
+# list of files names that match
+my @licenses = map { $_ } grep /^\.\/(?:LICEN[CS]E|COPYING)$/, @files;
+
+my @license = read_file($licenses[0]);
+my @copying = read_file($licenses[1]);
+
+if (@license ~~ @copying && @copying ~~ @license) {
+  say "a and b are deep copies of each other";
+}
+elsif (@license ~~ @copying) {
+  say "a smartmatches in b";
+}
+elsif (@copying ~~ @license) {
+  say "b smartmatches in a";
+}
+else {
+  say "a and b don't smartmatch each other at all";
+}
