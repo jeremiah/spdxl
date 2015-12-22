@@ -13,9 +13,9 @@ known body of licenses and spdx tags to produce a database.
 
 filename | SHA256 sum | license guestimate
 
-Since one of the targets of spdxl is Debian, Debian's license policies
-will be followed as a guide for the algorithm. For more info see the
-DFSG and https://wiki.debian.org/UpstreamGuide#Licenses
+Since Debian has a large body of packages it will serve as a corpus and 
+Debian's license policies will be followed as a guide for the algorithm. 
+For more info see the DFSG and https://wiki.debian.org/UpstreamGuide#Licenses
 
 Consider: "The license notice must be in some way “attached” to each
 file. (Sec. 1.4.) In cases where putting it in the file is impossible
