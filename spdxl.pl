@@ -74,10 +74,15 @@ if (-e $git_dir) {
   # handle the git dir
 };
 
-my @directories_to_search = ".";
+my @directories_to_search = "./";
+print "Searching through ";
+map { print "$_ \n" } @directories_to_search;
+
+# go through each dir
 find(\&nogit, @directories_to_search);
 
 my @files;
+
 sub nogit {
   /^\.git.*\z/s && ($File::Find::prune = 1)
     ||
@@ -86,6 +91,12 @@ sub nogit {
 
 # list of files names that match
 my @licenses = map { $_ } grep /^\.\/(?:LICEN[CS]E|COPYING)$/, @files;
+print "Files found\n";
+say map { "$_\n" } @files;
+print "Potential licenses found\n";
+say map { "$_\n" } @licenses;
+
+
 if (compare($licenses[0], $licenses[1]) == 0) {
   say "files identical.";
 }
