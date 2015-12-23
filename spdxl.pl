@@ -65,6 +65,7 @@ GPLv3
 use Path::Tiny;
 use File::Find;
 use File::Compare;
+use File::Slurp;
 use autodie;
 use feature "say";
 no warnings 'experimental::smartmatch';
@@ -89,14 +90,35 @@ sub nogit {
     push @files,  $File::Find::name;
 }
 
+sub gitish {
+  # git ls-files?
+}
+
 # list of files names that match
 my @licenses = map { $_ } grep /^\.\/(?:LICEN[CS]E|COPYING)$/, @files;
 print "Files found\n";
 say map { "$_\n" } @files;
-print "Potential licenses found\n";
+# print "Potential licenses found\n";
 say map { "$_\n" } @licenses;
+print "Files with SPDX tags found\n";
+my $contents;
+map {
+  if (! -d $_) {
+    $contents = read_file("$_");
+    if (grep /SPDX/, $contents) {
+      say "File name" . path(" $_");
+    }
+  }
+} @files;
 
 
+
+my $license_database = path("./license_database/");
+opendir(D, "$license_database") || die "Can't open directory $license_database: $!\n";
+my @known_licenses = readdir(D);
+closedir(D);
+
+# compare each license found to those in our database
 if (compare($licenses[0], $licenses[1]) == 0) {
   say "files identical.";
 }
