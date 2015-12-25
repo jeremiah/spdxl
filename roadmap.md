@@ -7,7 +7,9 @@ given or if a directory name is given. The file or the directory flag
 will be required.
 
 spdxl will assemble a list of those files, then compare them against a
-known body of licenses and spdx tags to produce a database.
+known body of licenses and spdx tags to produce a database. This means
+that spdxl will not only have to find the tag, but read it and
+understand the name of the license attached.
 
 2. Create a database in this format;
 
