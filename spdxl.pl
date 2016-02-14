@@ -5,7 +5,7 @@ use strict;
 
 =head1 NAME
 
-spdxl.pl  -- script that attempts to identify FOSS licenses contained with files and directories.
+spdxl.pl  -- script that attempts to identify FOSS licenses contained within files and directories.
 
 =head1 VERSION
 
