@@ -7,15 +7,17 @@ given or if a directory name is given. The file or the directory flag
 will be required.
 
 spdxl will assemble a list of those files, then compare them against a
-known body of licenses and spdx tags to produce a database.
+known body of licenses and spdx tags to produce a database. This means
+that spdxl will not only have to find the tag, but read it and
+understand the name of the license attached.
 
 2. Create a database in this format;
 
 filename | SHA256 sum | license guestimate
 
-Since one of the targets of spdxl is Debian, Debian's license policies
-will be followed as a guide for the algorithm. For more info see the
-DFSG and https://wiki.debian.org/UpstreamGuide#Licenses
+Since Debian has a large body of packages it will serve as a corpus and 
+Debian's license policies will be followed as a guide for the algorithm. 
+For more info see the DFSG and https://wiki.debian.org/UpstreamGuide#Licenses
 
 Consider: "The license notice must be in some way “attached” to each
 file. (Sec. 1.4.) In cases where putting it in the file is impossible

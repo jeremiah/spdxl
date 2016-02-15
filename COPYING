@@ -5,7 +5,11 @@
  Everyone is permitted to copy and distribute verbatim copies
  of this license document, but changing it is not allowed.
 
+<<<<<<< HEAD
                             Preamble
+=======
+                            Predamble
+>>>>>>> 981ee90753daafffd770fcd2186160040ed53bef
 
   The GNU General Public License is a free, copyleft license for
 software and other kinds of works.

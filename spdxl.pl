@@ -5,7 +5,7 @@ use strict;
 
 =head1 NAME
 
-spdxl.pl  -- script that attempts to identify FOSS licenses contained with files and directories.
+spdxl.pl  -- script that attempts to identify FOSS licenses contained within files and directories.
 
 =head1 VERSION
 
@@ -22,13 +22,12 @@ are stored.
 
 =head1 LICENSE
 
-GPLv3
+GNU Public License v3.0
+SPDX-License-Identifier: GPL-3.0
 
 =over
 
  spdxl  -- license identifier with reporting
-
- SPDX license identifier: GPL-3.0
 
  Copyright (C) 2015, Jeremiah C. Foster <jeremiah@jeremiahfoster.com>
 
@@ -65,6 +64,7 @@ GPLv3
 use Path::Tiny;
 use File::Find;
 use File::Compare;
+use File::Slurp;
 use autodie;
 use feature "say";
 no warnings 'experimental::smartmatch';
@@ -74,18 +74,29 @@ if (-e $git_dir) {
   # handle the git dir
 };
 
-my @directories_to_search = ".";
-find(\&nogit, @directories_to_search);
+my @directories_to_search = "./"; # make this recur
+print "Searching through ";
+map { print "$_ \n" } @directories_to_search;
 
+# go through each dir
+find(\&nogit, @directories_to_search);
 my @files;
+
 sub nogit {
   /^\.git.*\z/s && ($File::Find::prune = 1)
     ||
     push @files,  $File::Find::name;
 }
 
+sub main {
+  say "Main";
+}
+
 sub cmp_2_files {
-  # list of files names that match
+
+  # Should the comparison short-circuit if hashsums match?
+
+  # list of files names that match the regex below
   my @licenses = map { $_ } grep /^\.\/(?:LICEN[CS]E|COPYING)$/, @files;
   if (compare($licenses[0], $licenses[1]) == 0) {
     say "files identical.";
@@ -96,3 +107,49 @@ sub cmp_2_files {
     # magic
   }
 }
+
+sub gitish {
+  # git ls-files?
+}
+
+# # list of files names that match license or copyright as file names
+# my @licenses = map { $_ } grep /^\.\/(?:LICEN[CS]E|COPYING)$/, @files;
+# print "Files found\n";
+# say map { "$_\n" } @files;
+# # print "Potential licenses found\n";
+# say map { "$_\n" } @licenses;
+
+my @lines;
+my %tag;
+map {
+  if (! -d $_) {
+    @lines = read_file("$_");
+    if (grep /SPDX-License-Identifier/, @lines) {
+      my $tagged = map { $_ ;
+      $tag{ 'license' } = $tagged;
+      $tag{ 'file'    } = $_;
+    }
+  }
+} @files;
+
+
+print "SPDX tagged files\n";
+print "$tag{ 'file' } $tag{ 'license' }\n";
+
+
+# my $license_database = path("./license_database/");
+# opendir(D, "$license_database") || die "Can't open directory $license_database: $!\n";
+# my @known_licenses = readdir(D);
+# closedir(D);
+
+# # compare each license found to those in our database
+# if (compare($licenses[0], $licenses[1]) == 0) {
+#   say "files identical.";
+# }
+# else {
+#   say "files not identical.";
+#   use Text::Diff;
+#   # magic
+# }
+
+1;
