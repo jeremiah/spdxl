@@ -9,11 +9,11 @@ SPDXl.pm  -- perl library with subroutines for the spdxl.pl script
 
 =head1 VERSION
 
-Version 0.1.0
+Version 0.1.1
 
 =cut
 
-our $VERSION = '0.1.0';
+our $VERSION = '0.1.1';
 
 =head1 SYNOPSIS
 
@@ -23,17 +23,10 @@ This file holds various subroutines that spdxl.pl reuses.
 
 =head1 LICENSE
 
-GPLv3
+ SPDX-License-Identifier: GPL-3.0
+ This file is part of the SPDXL package.
 
-=over
-
- spdxl  -- license identifier with reporting
-
- SPDX license identifier: GPL-3.0
-
- Copyright (C) 2015, Jeremiah C. Foster <jeremiah@jeremiahfoster.com>
-
- This file is part of spdxl.
+ GNU Public License v3.0
 
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License
@@ -50,8 +43,11 @@ GPLv3
  Foundation, Inc., 51 Franklin Street, Fifth Floor,
  Boston, MA 02110-1301, USA.
 
- List of changes:
- Aug. 2015, spdxl.pl, created file
+=head1 COPYRIGHT
+
+ Copyright (C) 2015, Jeremiah C. Foster <jeremiah@jeremiahfoster.com>
+
+=over
 
 =back
 

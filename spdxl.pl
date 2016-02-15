@@ -5,15 +5,15 @@ use strict;
 
 =head1 NAME
 
-spdxl.pl  -- script that attempts to identify FOSS licenses contained within files and directories.
+spdxl.pl -- script that attempts to identify FOSS licenses contained within files and directories.
 
 =head1 VERSION
 
-Version 0.1.0
+Version 0.1.1
 
 =cut
 
-our $VERSION = '0.1.0';
+our $VERSION = '0.1.1';
 
 =head1 SYNOPSIS
 
