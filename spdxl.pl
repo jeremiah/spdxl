@@ -84,13 +84,15 @@ sub nogit {
     push @files,  $File::Find::name;
 }
 
-# list of files names that match
-my @licenses = map { $_ } grep /^\.\/(?:LICEN[CS]E|COPYING)$/, @files;
-if (compare($licenses[0], $licenses[1]) == 0) {
-  say "files identical.";
-}
-else {
-  say "files not identical.";
-  use Text::Diff;
-  # magic
+sub cmp_2_files {
+  # list of files names that match
+  my @licenses = map { $_ } grep /^\.\/(?:LICEN[CS]E|COPYING)$/, @files;
+  if (compare($licenses[0], $licenses[1]) == 0) {
+    say "files identical.";
+  }
+  else { # If the files *don't* match
+    say "files not identical.";
+    use Text::Diff;
+    # magic
+  }
 }
