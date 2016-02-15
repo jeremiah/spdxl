@@ -1,3 +1,7 @@
+SPDX-License-Identifier: CC-BY-4.0
+
+useful: https://spdx.org/licenses/
+
 This is the roadmap of spdxl. Since the code is at version 0.0.0, the
 first step is to try and specify an algorithm. The plan is to
 recursively search directories looking for all files.

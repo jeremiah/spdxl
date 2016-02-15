@@ -22,16 +22,10 @@ are stored.
 
 =head1 LICENSE
 
-GNU Public License v3.0
-SPDX-License-Identifier: GPL-3.0
+ SPDX-License-Identifier: GPL-3.0
+ This file is part of the SPDXL package.
 
-=over
-
- spdxl  -- license identifier with reporting
-
- Copyright (C) 2015, Jeremiah C. Foster <jeremiah@jeremiahfoster.com>
-
- This file is part of spdxl.
+ GNU Public License v3.0
 
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License
@@ -48,12 +42,36 @@ SPDX-License-Identifier: GPL-3.0
  Foundation, Inc., 51 Franklin Street, Fifth Floor,
  Boston, MA 02110-1301, USA.
 
+=head1 COPYRIGHT
+
+ Copyright (C) 2015, Jeremiah C. Foster <jeremiah@jeremiahfoster.com>
+
+=over
+
  List of changes:
  Aug. 2015, spdxl.pl, created file
 
 =back
 
+=head1 METHODS
+
+=head2 main
+
+ The main subroutine goes through all the files we've found, checks if
+ its a directory, skip it if it is, print the file name if we've found
+ a tag and then go through the file to pull out the identifier line.
+
+ ## TODO -- in the future we'll use this data to put out a conformant
+ ## SPDX doc
+ ## TODO -- pass arbitrary directories as arguments 
+ ## TODO -- ensure that the program goes through directories recursively
+
+=head2 nogit
+
+ If we find a git repo, i.e. ".git" tell File::Find to ignore it.
+
 =cut
+
 
 ## TODO -- the first issue we'll face is the high likelyhood of being
 ## in a git dir. Obviously we'll want to switch to a git handling
@@ -88,9 +106,25 @@ sub nogit {
     push @files,  $File::Find::name;
 }
 
+my @lines;
 sub main {
-  say "Main";
+  map {
+    if (! -d $_) {
+      @lines = read_file("$_");
+      print "File: $_ ";
+      foreach my $line (@lines) {
+	if ($line =~ /[SPDX]-License-Identifier: .*/) {
+	  chomp($line);
+	  print "$line";
+	}
+      }
+      print "\n";
+    }
+  } @files;
 }
+
+main();
+
 
 sub cmp_2_files {
 
@@ -118,23 +152,6 @@ sub gitish {
 # say map { "$_\n" } @files;
 # # print "Potential licenses found\n";
 # say map { "$_\n" } @licenses;
-
-my @lines;
-my %tag;
-map {
-  if (! -d $_) {
-    @lines = read_file("$_");
-    if (grep /SPDX-License-Identifier/, @lines) {
-      my $tagged = map { $_ ;
-      $tag{ 'license' } = $tagged;
-      $tag{ 'file'    } = $_;
-    }
-  }
-} @files;
-
-
-print "SPDX tagged files\n";
-print "$tag{ 'file' } $tag{ 'license' }\n";
 
 
 # my $license_database = path("./license_database/");
