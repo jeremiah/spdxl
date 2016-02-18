@@ -83,23 +83,27 @@ use Path::Tiny;
 use File::Find;
 use File::Compare;
 use File::Slurp;
+use Getopt::Long::Descriptive;
+use Pod::Usage;
+use Term::ANSIColor;
 use autodie;
 use feature "say";
 no warnings 'experimental::smartmatch';
 
-my $git_dir = path("./.git/");
-if (-e $git_dir) {
-  # handle the git dir
-};
-
-my @directories_to_search = "./"; # make this recur
-print "Searching through ";
-map { print "$_ \n" } @directories_to_search;
+# --- Command line options
+my ($opt, $usage) = describe_options
+  ('spdxl.pl %o <args>',
+   [ 'dir|d=s',    "Directory to search",   { required => 1  } ],
+   [ 'verbose|v',  "wordy"                                     ],
+   [ 'help',       "print usage message and exit"              ],
+  );
+print($usage->text), exit if $opt->help;
+print "Searching through $opt->dir" if $opt->verbose;;
 
 # go through each dir
-find(\&nogit, @directories_to_search);
-my @files;
+find(\&nogit, $opt->dir);
 
+my @files;
 sub nogit {
   /^\.git.*\z/s && ($File::Find::prune = 1)
     ||
@@ -113,16 +117,15 @@ sub main {
       @lines = read_file("$_");
       print "File: $_ ";
       foreach my $line (@lines) {
-	if ($line =~ /[SPDX]-License-Identifier: .*/) {
+	if ($line =~ /SPDX.?[Ll]ic/) {
 	  chomp($line);
-	  print "$line";
+	  print colored ['bright_yellow on_black'], "$line";
 	}
       }
       print "\n";
     }
   } @files;
 }
-
 main();
 
 
@@ -146,6 +149,12 @@ sub gitish {
   # git ls-files?
 }
 
+my $git_dir = path("./.git/");
+if (-e $git_dir) {
+  # handle the git dir
+};
+
+
 # # list of files names that match license or copyright as file names
 # my @licenses = map { $_ } grep /^\.\/(?:LICEN[CS]E|COPYING)$/, @files;
 # print "Files found\n";
@@ -168,5 +177,7 @@ sub gitish {
 #   use Text::Diff;
 #   # magic
 # }
+
+
 
 1;
