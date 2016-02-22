@@ -72,7 +72,6 @@ are stored.
 
 =cut
 
-
 ## TODO -- the first issue we'll face is the high likelyhood of being
 ## in a git dir. Obviously we'll want to switch to a git handling
 ## module for that work or we'll just ignore it which is probably a
@@ -88,7 +87,6 @@ use Pod::Usage;
 use Term::ANSIColor;
 use autodie;
 use feature "say";
-no warnings 'experimental::smartmatch';
 
 # --- Command line options
 my ($opt, $usage) = describe_options
