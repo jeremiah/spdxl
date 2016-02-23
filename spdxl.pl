@@ -5,7 +5,8 @@ use strict;
 
 =head1 NAME
 
-spdxl.pl -- script that attempts to identify FOSS licenses contained within files and directories.
+spdxl.pl -- script that attempts to identify FOSS licenses and
+corresponding files associated with them based on SPDX tags.
 
 =head1 VERSION
 
@@ -50,6 +51,7 @@ are stored.
 
  List of changes:
  Aug. 2015, spdxl.pl, created file
+ Feb. 2016, spdxl.pl, MVP working
 
 =back
 
@@ -63,8 +65,6 @@ are stored.
 
  ## TODO -- in the future we'll use this data to put out a conformant
  ## SPDX doc
- ## TODO -- pass arbitrary directories as arguments 
- ## TODO -- ensure that the program goes through directories recursively
 
 =head2 nogit
 
@@ -92,11 +92,12 @@ use feature "say";
 my ($opt, $usage) = describe_options
   ('spdxl.pl %o <args>',
    [ 'dir|d=s',    "Directory to search",   { required => 1  } ],
-   [ 'verbose|v',  "wordy"                                     ],
-   [ 'help',       "print usage message and exit"              ],
+   [ 'color|c',    "Color output"                              ],
+   [ 'verbose|v',  "Wordy"                                     ],
+   [ 'help',       "Print usage message and exit"              ],
   );
 print($usage->text), exit if $opt->help;
-print "Searching through $opt->dir" if $opt->verbose;;
+print "Searching through " . $opt->dir . "\n" if $opt->verbose;
 
 # go through each dir
 find(\&nogit, $opt->dir);
@@ -117,14 +118,18 @@ sub main {
       foreach my $line (@lines) {
 	if ($line =~ /SPDX.?[Ll]ic/) {
 	  chomp($line);
-	  print colored ['bright_yellow on_black'], "$line";
+	  if ($opt->color) { colored_output($line) } else { print "$line"; }
 	}
-      }
-      print "\n";
+      } print "\n";
     }
   } @files;
 }
 main();
+
+sub colored_output {
+  my $line = shift;
+  print colored ['bright_yellow on_black'], "$line";
+}
 
 
 sub cmp_2_files {
