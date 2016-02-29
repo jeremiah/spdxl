@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<head>
+  <title>jeremiahfoster.com | Work in progress</title>
+  <link rel="shortcut icon" type="image/png" href="images/jf.favicon.ico"/>
+  <link rel="icon" type="image/png" href="images/jf.favicon.ico"/> 
+  <meta http-equiv="Cache-control" content="public">
+  <meta name="keywords" content="Personal web site for Jeremiah C. Foster" />
+  <meta name="author" content="jeremiah foster" />
+  <meta name="copyright" content="Jeremiah Foster 2011" />
+  <meta name="license" content="Copyright (c) 2012  JEREMIAH FOSTER	
+				Permission is granted to copy, distribute and/or modify this document
+				under the terms of the GNU Free Documentation License, Version 1.2
+				or any later version published by the Free Software Foundation;
+				with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts." />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+<!-- now with 42% more responsiveness -->
+
+
+</style>
+</head>
+<body>	
+  <div id="main">
+    <h1 style="font-weight: bold;">OHAI!</h1>
+
+    : # iterate over an ARRAY reference
+    : for $tags.0 -> $line {
+    <: $~line :><: $line :>
+          : }
+    
+    
+  </div>		    
+</body></html>
+
+
