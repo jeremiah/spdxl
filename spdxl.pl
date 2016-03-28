@@ -78,7 +78,8 @@ are stored.
 
 =head2 htmlout
 
- HTML output. Under construction.
+ HTML output works, but it means that we do not have any other output
+ ATM. Plain text and colored ASCII text needs to be fixed next.
 
 =cut
 
@@ -101,14 +102,23 @@ use feature "say";
 # --- Command line options
 my ($opt, $usage) = describe_options
   ('spdxl.pl %o <args>',
-   [ 'dir|d=s',    "Directory to search",   { required => 1  } ],
-   [ 'color|c',    "Color output"                              ],
-   [ 'htmlout|h',  "Produce HTML output"                       ],
-   [ 'verbose|v',  "Wordy"                                     ],
-   [ 'help',       "Print usage message and exit"              ],
+   [ 'dir|d=s',    "Directory to search"            ],
+   [ 'fil|f=s' ,   "Single file to check"           ],
+   [ 'color|c',    "Color output"                   ],
+   [ 'htmlout|h',  "Produce HTML output"            ],
+   [ 'verbose|v',  "Wordy"                          ],
+   [ 'help',       "Print usage message and exit"   ],
   );
+
+if ($opt->fil) {
+  print "File: " . $opt->fil . "\n" if $opt->verbose;
+  check_each_line($opt->fil);
+  exit;
+}
+
 print($usage->text), exit if $opt->help;
 print "Searching through " . $opt->dir . "\n" if $opt->verbose;
+
 
 # go through each dir
 find(\&nogit, $opt->dir);
@@ -126,11 +136,10 @@ sub main {
     my ($row, $line);
     if (! -d $_) {
       @lines = read_file("$_");
-      # print "File: $_ ";
+      # print "File: $file ";
       foreach my $line (@lines) {
 	if ($line =~ /SPDX.?[Ll]ic/) {
 	  chomp($line);
-
 	  # Here we put the line in an array. Perhaps make a hash with
 	  # file name and tag?
 	  push @{ $spdxtags[$row++] }, $line;
@@ -143,6 +152,25 @@ sub main {
 }
 main();
 
+sub check_each_line {
+  my $file = shift;
+  my ($row, $line);
+  if (! -d $file) {
+    @lines = read_file("$file");
+    print "File: $file " if $opt->verbose;
+    foreach my $line (@lines) {
+      if ($line =~ /SPDX.?[Ll]ic/) {
+	chomp($line);
+	# Here we put the line in an array. Perhaps make a hash with
+	# file name and tag?
+	push @{ $spdxtags[$row++] }, $line;
+
+	# if ($opt->color) { colored_output($line) } else { print "$line"; }
+      }
+    } print "\n";
+  }
+}
+
 sub colored_output {
   my $line = shift;
   print colored ['bright_yellow on_black'], "$line";
@@ -152,10 +180,7 @@ sub htmlout {
   use Text::Xslate;
   my $tx = Text::Xslate->new();
   my @tags = shift;
-  my %vars =
-    (
-     tags => \@tags,
-    );
+  my %vars = ( tags => \@tags,  );
   print $tx->render("spdxl.tx", \%vars);
 }
 htmlout(@spdxtags) if $opt->htmlout;
