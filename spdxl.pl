@@ -18,8 +18,15 @@ our $VERSION = '0.1.1';
 
 =head1 SYNOPSIS
 
-This file is a script where many of the actions that spdxl executes
-are stored.
+spdxl.pl [-cdfhv] [long options...] <args>
+
+ -d STR --dir STR    Directory to search
+ -f STR --fil STR    Single file to check
+ -c --color          Color output
+ -h --htmlout        Produce HTML output
+ -v --verbose        Wordy
+ --help              Print usage message and exit
+
 
 =head1 LICENSE
 
@@ -118,7 +125,6 @@ if ($opt->fil) {
 
 print($usage->text), exit if $opt->help;
 print "Searching through " . $opt->dir . "\n" if $opt->verbose;
-
 
 # go through each dir
 find(\&nogit, $opt->dir);
