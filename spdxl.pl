@@ -73,12 +73,6 @@ spdxl.pl [-cdfhv] [long options...] <args>
  ## TODO -- in the future we'll use this data to put out a conformant
  ## SPDX doc
 
- ## Right now we can push things out through the Xslate template
- ## called spdxl.tx to produce html. This needs to be a bit cleaner
- ## and needs to work with printing, that is to say we need to be able
- ## to print text *or* HTML, right now its just html and commented out
- ## print statements. But it works.
-
 =head2 nogit
 
  If we find a git repo, i.e. ".git" tell File::Find to ignore it.
@@ -142,15 +136,14 @@ sub main {
     my ($row, $line);
     if (! -d $_) {
       @lines = read_file("$_");
-      # print "File: $file ";
+      print "File: $_ "; # This prints the files we've found
       foreach my $line (@lines) {
 	if ($line =~ /SPDX.?[Ll]ic/) {
 	  chomp($line);
 	  # Here we put the line in an array. Perhaps make a hash with
 	  # file name and tag?
 	  push @{ $spdxtags[$row++] }, $line;
-
-	  # if ($opt->color) { colored_output($line) } else { print "$line"; }
+	  if ($opt->color) { colored_output($line) } else { print "$line"; }
 	}
       } print "\n";
     }
@@ -170,7 +163,6 @@ sub check_each_line {
 	# Here we put the line in an array. Perhaps make a hash with
 	# file name and tag?
 	push @{ $spdxtags[$row++] }, $line;
-
 	# if ($opt->color) { colored_output($line) } else { print "$line"; }
       }
     } print "\n";
