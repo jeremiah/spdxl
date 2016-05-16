@@ -12,13 +12,13 @@ you can created a complete SPDX document.
 There is a bug tracker used on GitHub for spdxl.
 
 ## Patches and pull requests
-Either or are welcomed.
+Both are welcomed.
 
+## See also 
+[ninka](https://github.com/dmgerman/ninka)
 
 You can get tools that convert tags to spreadsheets here:
 https://github.com/goneall/SPDX-Tools
 
-## See also 
-[ninka](https://github.com/dmgerman/ninka)
 
 Copyright (c) 2015 Jeremiah C. Foster
