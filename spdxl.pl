@@ -70,9 +70,6 @@ spdxl.pl [-cdfhv] [long options...] <args>
  its a directory, skip it if it is, print the file name if we've found
  a tag and then go through the file to pull out the identifier line.
 
- ## TODO -- in the future we'll use this data to put out a conformant
- ## SPDX doc
-
 =head2 nogit
 
  If we find a git repo, i.e. ".git" tell File::Find to ignore it.
@@ -90,6 +87,12 @@ spdxl.pl [-cdfhv] [long options...] <args>
 ## really bad idea since important data can be gleaned or even
 ## determined with a high degree of certainty.
 
+## TODO -- in the future we'll use this data to put out a conformant
+## SPDX doc
+
+## Separate html output from text output, currently if you specify
+## html output, it comes at the end of the text output.
+
 use Path::Tiny;
 use File::Find;
 use File::Compare;
@@ -99,7 +102,7 @@ use Pod::Usage;
 use Term::ANSIColor;
 use autodie;
 use feature "say";
-use spdxl;
+
 # --- Command line options
 my ($opt, $usage) = describe_options
   ('spdxl.pl %o <args>',
@@ -131,7 +134,7 @@ sub nogit {
 }
 
 my (@lines, @spdxtags);
-sub main {
+sub grep_for_tags {
   map {
     my ($row, $line);
     if (! -d $_) {
@@ -143,20 +146,20 @@ sub main {
 	  # Here we put the line in an array. Perhaps make a hash with
 	  # file name and tag?
 	  push @{ $spdxtags[$row++] }, $line;
-	  if ($opt->color) { colored_output($line) } else { print "$line"; }
+	  if ($opt->color) { colored_output($line); }
 	}
       } print "\n";
     }
   } @files;
 }
-main();
+grep_for_tags();
 
-sub check_each_line {
+sub check_each_line {  # This should just build up the data structure, don't print anything
   my $file = shift;
   my ($row, $line);
   if (! -d $file) {
     @lines = read_file("$file");
-    print "File: $file " if $opt->verbose;
+    # print "File: $file " 
     foreach my $line (@lines) {
       if ($line =~ /SPDX.?[Ll]ic/) {
 	chomp($line);
@@ -174,6 +177,13 @@ sub colored_output {
   print colored ['bright_yellow on_black'], "$line";
 }
 
+sub htmlout {
+  use Text::Xslate;
+  my $tx = Text::Xslate->new();
+  my @tags = shift;
+  my %vars = ( tags => \@tags,  );
+  print $tx->render("spdxl.tx", \%vars);
+}
 # Create html output from the tags found if requested
 htmlout(@spdxtags) if $opt->htmlout;
 
