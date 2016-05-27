@@ -99,7 +99,7 @@ use Pod::Usage;
 use Term::ANSIColor;
 use autodie;
 use feature "say";
-
+use spdxl;
 # --- Command line options
 my ($opt, $usage) = describe_options
   ('spdxl.pl %o <args>',
