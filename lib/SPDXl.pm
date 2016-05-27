@@ -9,11 +9,11 @@ SPDXl.pm  -- perl library with subroutines for the spdxl.pl script
 
 =head1 VERSION
 
-Version 0.1.0
+Version 0.1.1
 
 =cut
 
-our $VERSION = '0.1.0';
+our $VERSION = '0.1.1';
 
 =head1 SYNOPSIS
 
@@ -23,7 +23,8 @@ This file holds various subroutines that spdxl.pl reuses.
 
 =head1 LICENSE
 
-GPLv3
+ SPDX-License-Identifier: GPL-3.0
+ This file is part of the SPDXL package.
 
 =over
 
@@ -56,6 +57,42 @@ GPLv3
 =back
 
 =cut
+
+
+sub htmlout {
+  use Text::Xslate;
+  my $tx = Text::Xslate->new();
+  my @tags = shift;
+  my %vars = ( tags => \@tags,  );
+  print $tx->render("spdxl.tx", \%vars);
+}
+
+
+
+
+# # list of files names that match license or copyright as file names
+# my @licenses = map { $_ } grep /^\.\/(?:LICEN[CS]E|COPYING)$/, @files;
+# print "Files found\n";
+# say map { "$_\n" } @files;
+# # print "Potential licenses found\n";
+# say map { "$_\n" } @licenses;
+
+
+# my $license_database = path("./license_database/");
+# opendir(D, "$license_database") || die "Can't open directory $license_database: $!\n";
+# my @known_licenses = readdir(D);
+# closedir(D);
+
+# # compare each license found to those in our database
+# if (compare($licenses[0], $licenses[1]) == 0) {
+#   say "files identical.";
+# }
+# else {
+#   say "files not identical.";
+#   use Text::Diff;
+#   # magic
+# }
+
 
 
 1;
