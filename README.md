@@ -20,5 +20,7 @@ Both are welcomed.
 You can get tools that convert tags to spreadsheets here:
 https://github.com/goneall/SPDX-Tools
 
+The image embedded in this page is being used as a SPEC: https://spdx.org/tools
+
 
 Copyright (c) 2015 Jeremiah C. Foster
