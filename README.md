@@ -20,8 +20,9 @@ Both are welcomed.
 You can get tools that convert tags to spreadsheets here:
 https://github.com/goneall/SPDX-Tools
 
-The image embedded in this page is being used as a SPEC: https://spdx.org/tools
-SPDX license data as JSON is here: http://spdx.org/licenses/licenses.json Might be fun to parse this and create a prettier HTML dump via Angular or similar.
+* The image embedded in this page is being used as a SPEC: https://spdx.org/tools
+* SPDX license data as JSON is here: http://spdx.org/licenses/licenses.json Might be fun to parse this and create a prettier HTML dump via Angular or similar.
 
-
+## Copyright and License
 Copyright (c) 2015 Jeremiah C. Foster
+Licensed under the GPLv3
