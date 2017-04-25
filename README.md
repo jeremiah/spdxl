@@ -25,4 +25,5 @@ https://github.com/goneall/SPDX-Tools
 
 ## Copyright and License
 Copyright (c) 2015 Jeremiah C. Foster
+
 Licensed under the GPLv3
