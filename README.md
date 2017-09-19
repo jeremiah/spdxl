@@ -1,6 +1,6 @@
 # spdxl 
 
-This is alpha quality software.
+This is alpha quality software!
 
 spdxl (pronounced spud-exel) is a tool that checks source 
 code looking for SPDX version 2.0 "tags" and produces a text-based output
