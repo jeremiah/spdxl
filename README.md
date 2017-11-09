@@ -22,6 +22,7 @@ Patches and pull requests are welcomed.
 
 ## See also 
 [ninka](https://github.com/dmgerman/ninka)
+[lint-bom](https://git.fsfe.org/reuse/bom-nodejs/src/master/src/lint-bom) 
 
 You can get tools that convert tags to spreadsheets here:
 https://github.com/goneall/SPDX-Tools
