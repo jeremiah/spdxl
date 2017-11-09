@@ -1,4 +1,4 @@
 find.ex.pl
-dist.ini
 simple.spdx.html
 openismus-spdx-generator.py
+.build/

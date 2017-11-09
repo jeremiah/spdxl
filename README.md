@@ -8,11 +8,15 @@ on the command line. Designed to be used in conjunction with Debian's licenseche
 it provides a way to ensure that all the files are correctly licensed and that 
 you can created a complete SPDX document. 
 
-## Bugs
-There is a bug tracker used on GitHub for spdxl.
+## Install
 
-## Patches and pull requests
-Both are welcomed.
+## Usage
+
+## Bugs
+Please use 'issues' on GitHub for spdxl.
+
+## Contribute
+Patches and pull requests are welcomed.
 
 ## See also 
 [ninka](https://github.com/dmgerman/ninka)
