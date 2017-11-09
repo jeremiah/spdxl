@@ -8,6 +8,8 @@ on the command line. Designed to be used in conjunction with Debian's licenseche
 it provides a way to ensure that all the files are correctly licensed and that 
 you can created a complete SPDX document. 
 
+[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+
 ## Install
 
 ## Usage
