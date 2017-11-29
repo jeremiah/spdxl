@@ -5,8 +5,7 @@ use strict;
 
 =head1 NAME
 
-spdxl.pl -- script that attempts to identify FOSS licenses and
-corresponding files associated with them based on SPDX tags.
+spdxl.pl -- Find files and grep SPDX tags in them
 
 =head1 VERSION
 
