@@ -12,7 +12,21 @@ you can created a complete SPDX document.
 
 ## Install
 
+To install spdxl follow this incantation;
+
+   perl Makefile.PL
+   make
+   sudo make install
+
+The last command may require sudo to allow you to install software on your
+system. This has been tested on a Debian GNU/Linux system but should work on most UNIX systems or OSes that have perl.
+
 ## Usage
+The easiest way to use this is to call perl and spdxl.pl like this
+```
+perl spdxl.pl -d ./ -c
+```
+That uses the -d argument since spdxl needs a directory to read from (and the following "./" is the directory to read.) Then I've passed the -c flag to have colored output. The -c flag is optional. The -d flag is not. Call `perldoc spdxl` for more usage info.
 
 ## Bugs
 Please use 'issues' on GitHub for spdxl.
