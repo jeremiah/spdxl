@@ -89,6 +89,9 @@ spdxl.pl [-cdfhv] [long options...] <args>
 ## TODO -- in the future we'll use this data to put out a conformant
 ## SPDX doc
 
+## TODO -- grep for copyright (don't use String::Copyright which is
+## just a formatter.)
+
 ## Separate html output from text output, currently if you specify
 ## html output, it comes at the end of the text output.
 
