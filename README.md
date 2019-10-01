@@ -1,3 +1,5 @@
+[![forthebadge](https://forthebadge.com/images/badges/no-ragrets.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/compatibility-emacs.svg)](https://forthebadge.com)
 # spdxl 
 
 This is alpha quality software!
