@@ -17,7 +17,10 @@ understand the name of the license attached. [TODO]
 3. Output from the results of grepping the file list is presented as 
 plain text on the command line. [TODO]
 
+4. Build a valid SPDX file from output
 
+5. Output JSON / YAML so that a web page can be built from that data. 
+YAML / JSON now supported in the SPDX Spec: https://iamwillbar.github.io/spdx-spec/2-base-profile/
 
 ### Notes
 Consider: "The license notice must be in some way “attached” to each
