@@ -15,11 +15,11 @@ you can created a complete SPDX document.
 ## Install
 
 To install spdxl follow this incantation;
-
+```
    perl Makefile.PL
    make
    sudo make install
-
+```
 The last command may require sudo to allow you to install software on your
 system. This has been tested on a Debian GNU/Linux system but should work on most UNIX systems or OSes that have perl.
 
