@@ -25,12 +25,11 @@ This file holds various subroutines that spdxl.pl reuses.
 
  SPDX-License-Identifier: GPL-3.0
  This file is part of the SPDXL package.
+ SPDX-FileCopyrightText: 2015 Jeremiah C. Foster <jeremiah@jeremiahfoster.com>
 
 =over
 
  spdxl  -- license identifier with reporting
-
- SPDX license identifier: GPL-3.0
 
  Copyright (C) 2015, Jeremiah C. Foster <jeremiah@jeremiahfoster.com>
 
@@ -51,16 +50,14 @@ This file holds various subroutines that spdxl.pl reuses.
  Foundation, Inc., 51 Franklin Street, Fifth Floor,
  Boston, MA 02110-1301, USA.
 
+ SPDX-License-Identifier: GPL-3.0
+
  List of changes:
  Aug. 2015, spdxl.pl, created file
 
 =back
 
 =cut
-
-
-
-
 
 # # list of files names that match license or copyright as file names
 # my @licenses = map { $_ } grep /^\.\/(?:LICEN[CS]E|COPYING)$/, @files;

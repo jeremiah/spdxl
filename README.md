@@ -39,6 +39,7 @@ Patches and pull requests are welcomed.
 ## See also 
 [ninka](https://github.com/dmgerman/ninka)
 [lint-bom](https://git.fsfe.org/reuse/bom-nodejs/src/master/src/lint-bom) 
+[reuse](https://github.com/fsfe/reuse-tool) 
 
 You can get tools that convert tags to spreadsheets here:
 https://github.com/goneall/SPDX-Tools
@@ -49,4 +50,4 @@ https://github.com/goneall/SPDX-Tools
 ## Copyright and License
 Copyright (c) 2015 Jeremiah C. Foster
 
-Licensed under the GPLv3
+Source code licensed under the GPLv3

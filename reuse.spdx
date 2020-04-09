@@ -1,0 +1,142 @@
+SPDXVersion: SPDX-2.1
+DataLicense: CC0-1.0
+SPDXID: SPDXRef-DOCUMENT
+DocumentName: spdxl
+DocumentNamespace: http://spdx.org/spdxdocs/spdx-v2.1-5934debd-8e1f-48ee-8508-956556c3d741
+Creator: Person: Anonymous ()
+Creator: Organization: Anonymous ()
+Creator: Tool: reuse-0.8.1
+Created: 2020-04-09T18:29:25Z
+CreatorComment: <text>This document was created automatically using available reuse information consistent with REUSE.</text>
+Relationship: SPDXRef-DOCUMENT describes SPDXRef-655360f7f47793a4114f1b077c75196e
+Relationship: SPDXRef-DOCUMENT describes SPDXRef-5f47e2d45d0dd7bf7fb9e9643cb1874d
+Relationship: SPDXRef-DOCUMENT describes SPDXRef-41b8763b7913dfd8f13b8deab1f79ecf
+Relationship: SPDXRef-DOCUMENT describes SPDXRef-1d06b363203f76c09bd9a341589f2d09
+Relationship: SPDXRef-DOCUMENT describes SPDXRef-ffcdabf93f57e7fbce6be015c72cd90a
+Relationship: SPDXRef-DOCUMENT describes SPDXRef-6759ebc1261ddabc3622f0e7f63c33a8
+Relationship: SPDXRef-DOCUMENT describes SPDXRef-c8046b7aedb25e2eb035d45edb839bba
+Relationship: SPDXRef-DOCUMENT describes SPDXRef-5ee6a8589821bfc7b49b5ab73735b504
+Relationship: SPDXRef-DOCUMENT describes SPDXRef-8ddb7ca628937da949616f8c3666727e
+Relationship: SPDXRef-DOCUMENT describes SPDXRef-25cbdde44f5cc3ec8512219ca16ab446
+Relationship: SPDXRef-DOCUMENT describes SPDXRef-93b3bb06f93f418cf0d09bfe01c286c8
+Relationship: SPDXRef-DOCUMENT describes SPDXRef-d894fc03a0af67f1a9683d65ba54f802
+Relationship: SPDXRef-DOCUMENT describes SPDXRef-80f5adb499efef8aa3578dde75f72ca7
+Relationship: SPDXRef-DOCUMENT describes SPDXRef-9153bccc3861c67872c6888cd9566a34
+Relationship: SPDXRef-DOCUMENT describes SPDXRef-a1a9cc19d2fd210a5db482086c047902
+Relationship: SPDXRef-DOCUMENT describes SPDXRef-0c83632933daa3c8ac5c3987ac5f9150
+Relationship: SPDXRef-DOCUMENT describes SPDXRef-c4e40a9e073dae73a72c85be7919d6bf
+Relationship: SPDXRef-DOCUMENT describes SPDXRef-ee20e9b1f0d794247e8900d33f179df7
+
+FileName: ./.gitignore
+SPDXID: SPDXRef-655360f7f47793a4114f1b077c75196e
+FileChecksum: SHA1: f4a986d3cb2009fd35a3f1b71ebd39a2bfa1358c
+LicenseConcluded: NOASSERTION
+FileCopyrightText: NONE
+
+FileName: ./.travis.yml
+SPDXID: SPDXRef-5f47e2d45d0dd7bf7fb9e9643cb1874d
+FileChecksum: SHA1: 6ac8b0c630f2719ddde437d5e2d11d8fb9148829
+LicenseConcluded: NOASSERTION
+FileCopyrightText: NONE
+
+FileName: ./Changes
+SPDXID: SPDXRef-41b8763b7913dfd8f13b8deab1f79ecf
+FileChecksum: SHA1: da39a3ee5e6b4b0d3255bfef95601890afd80709
+LicenseConcluded: NOASSERTION
+FileCopyrightText: NONE
+
+FileName: ./INSTALL
+SPDXID: SPDXRef-1d06b363203f76c09bd9a341589f2d09
+FileChecksum: SHA1: 50a4dd9000a0945b68b86c60d45882223baa0f0c
+LicenseConcluded: NOASSERTION
+FileCopyrightText: NONE
+
+FileName: ./META.yml
+SPDXID: SPDXRef-ffcdabf93f57e7fbce6be015c72cd90a
+FileChecksum: SHA1: b96e7b897188d8c6953df2214cffe614af2f6acf
+LicenseConcluded: NOASSERTION
+FileCopyrightText: NONE
+
+FileName: ./MYMETA.json
+SPDXID: SPDXRef-6759ebc1261ddabc3622f0e7f63c33a8
+FileChecksum: SHA1: 223c559841a7cb364590f96c91bc983a9b565c8c
+LicenseConcluded: NOASSERTION
+FileCopyrightText: NONE
+
+FileName: ./MYMETA.yml
+SPDXID: SPDXRef-c8046b7aedb25e2eb035d45edb839bba
+FileChecksum: SHA1: b697a738ef39748066933ba9d2d1e07da5b3446f
+LicenseConcluded: NOASSERTION
+FileCopyrightText: NONE
+
+FileName: ./Makefile.PL
+SPDXID: SPDXRef-5ee6a8589821bfc7b49b5ab73735b504
+FileChecksum: SHA1: f1479d41cf37f82129453cbc03fdf3802be5a6d0
+LicenseConcluded: NOASSERTION
+FileCopyrightText: NONE
+
+FileName: ./README.md
+SPDXID: SPDXRef-8ddb7ca628937da949616f8c3666727e
+FileChecksum: SHA1: e0c651a499aeb027175a6770bcc3fc7bd2d1e421
+LicenseConcluded: NOASSERTION
+FileCopyrightText: <text>Copyright (c) 2015 Jeremiah C. Foster
+Copyright and License</text>
+
+FileName: ./dist.ini
+SPDXID: SPDXRef-25cbdde44f5cc3ec8512219ca16ab446
+FileChecksum: SHA1: 3cb80cc971d73212f0b0abcdf60e9a2921eb717d
+LicenseConcluded: NOASSERTION
+FileCopyrightText: NONE
+
+FileName: ./docs/_config.yml
+SPDXID: SPDXRef-93b3bb06f93f418cf0d09bfe01c286c8
+FileChecksum: SHA1: 17df15d79c7a6eb779f4a69b95ec346d4306ad85
+LicenseConcluded: NOASSERTION
+FileCopyrightText: NONE
+
+FileName: ./docs/index.html
+SPDXID: SPDXRef-d894fc03a0af67f1a9683d65ba54f802
+FileChecksum: SHA1: 6a51131e6bbf74d09680f1353dd7426a7a849153
+LicenseConcluded: NOASSERTION
+FileCopyrightText: NONE
+
+FileName: ./docs/roadmap.md
+SPDXID: SPDXRef-80f5adb499efef8aa3578dde75f72ca7
+FileChecksum: SHA1: 41d5ac59dfff0e1608eb4f7d4e6bff53fd1082cb
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: CC-BY-4.0
+FileCopyrightText: NONE
+
+FileName: ./lib/SPDXl.pm
+SPDXID: SPDXRef-9153bccc3861c67872c6888cd9566a34
+FileChecksum: SHA1: 5066f6668034495d0728f03130692b9b3038e202
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: GPL-3.0
+FileCopyrightText: <text>Copyright (C) 2015, Jeremiah C. Foster <jeremiah@jeremiahfoster.com>
+SPDX-FileCopyrightText: 2015 Jeremiah C. Foster <jeremiah@jeremiahfoster.com></text>
+
+FileName: ./license_database/GPL-3.0
+SPDXID: SPDXRef-a1a9cc19d2fd210a5db482086c047902
+FileChecksum: SHA1: 8624bcdae55baeef00cd11d5dfcfa60f68710a02
+LicenseConcluded: NOASSERTION
+FileCopyrightText: <text>Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/></text>
+
+FileName: ./spdxl.pl
+SPDXID: SPDXRef-0c83632933daa3c8ac5c3987ac5f9150
+FileChecksum: SHA1: 61b20193658e58ab9f9a1cb704aaca6ce7857558
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: GPL-3.0
+FileCopyrightText: <text>Copyright (C) 2015, Jeremiah C. Foster <jeremiah@jeremiahfoster.com>
+Copyright which is</text>
+
+FileName: ./spdxl.tx
+SPDXID: SPDXRef-c4e40a9e073dae73a72c85be7919d6bf
+FileChecksum: SHA1: d6820fd1e1ef142d3f0cfbfe56e1133489250610
+LicenseConcluded: NOASSERTION
+FileCopyrightText: <text>Copyright (c) 2012  JEREMIAH FOSTER	</text>
+
+FileName: ./t/00-load.t
+SPDXID: SPDXRef-ee20e9b1f0d794247e8900d33f179df7
+FileChecksum: SHA1: c2688d3b01b03f9c44218ed8f82f63beeb3ccf7c
+LicenseConcluded: NOASSERTION
+FileCopyrightText: NONE
