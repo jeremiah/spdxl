@@ -26,7 +26,6 @@ spdxl.pl [-cdfhv] [long options...] <args>
  -v --verbose        Wordy
  --help              Print usage message and exit
 
-
 =head1 LICENSE
 
  SPDX-License-Identifier: GPL-3.0
@@ -108,13 +107,14 @@ use feature "say";
 # --- Command line options
 my ($opt, $usage) = describe_options
   ('spdxl.pl %o <args>',
-   [ 'dir|d=s',    "Directory to search"            ],
-   [ 'fil|f=s' ,   "Single file to check"           ],
-   [ 'color|c',    "Color output"                   ],
-   [ 'htmlout|h',  "Produce HTML output"            ],
-   [ 'verbose|v',  "Wordy"                          ],
-   [ 'help',       "Print usage message and exit"   ],
+   [ 'dir|d=s',    "Directory to search", { required => 1 } ],
+   [ 'fil|f=s' ,   "Single file to check"                   ],
+   [ 'color|c',    "Color output"                           ],
+   [ 'htmlout|h',  "Produce HTML output"                    ],
+   [ 'verbose|v',  "Wordy"                                  ],
+   [ 'help',       "Print usage message and exit"           ],
   );
+
 
 if ($opt->fil) {
   print "File: " . $opt->fil . "\n" if $opt->verbose;
