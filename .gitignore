@@ -2,3 +2,6 @@ find.ex.pl
 simple.spdx.html
 openismus-spdx-generator.py
 .build/
+blib/
+inc/
+pm_to_blib
