@@ -28,7 +28,8 @@ spdxl.pl [-cdfhv] [long options...] <args>
 
 =head1 LICENSE
 
- SPDX-License-Identifier: GPL-3.0
+ SPDX-License-Identifier: GPL-3.0-or-later
+ SPDX-FileCopyrightText: 2015 Jeremiah C. Foster <jeremiah@jeremiahfoster.com>
  This file is part of the SPDXL package.
 
  GNU Public License v3.0
