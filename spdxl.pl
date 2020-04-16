@@ -107,8 +107,8 @@ use feature "say";
 # --- Command line options
 my ($opt, $usage) = describe_options
   ('spdxl.pl %o <args>',
-   [ 'dir|d=s',    "Directory to search", { required => 1 } ],
-   [ 'fil|f=s' ,   "Single file to check"                   ],
+   [ 'dir|d=s',    "Directory to search"           ],
+   [ 'fil|f=s' ,   "Single file to check"          ],
    [ 'color|c',    "Color output"                           ],
    [ 'htmlout|h',  "Produce HTML output"                    ],
    [ 'verbose|v',  "Wordy"                                  ],
@@ -159,16 +159,16 @@ grep_for_tags();
 sub check_each_line {  # This should just build up the data structure, don't print anything
   my $file = shift;
   my ($row, $line);
-  if (! -d $file) {
+  if (! -d $file && -e $file) {
     @lines = read_file("$file");
     # print "File: $file " 
     foreach my $line (@lines) {
-      if ($line =~ /SPDX.?[Ll]ic/) {
+      if ($line =~ /SPDX.?[Ll]ic/) { # This just looks for a SPDX-License tag
 	chomp($line);
 	# Here we put the line in an array. Perhaps make a hash with
 	# file name and tag?
 	push @{ $spdxtags[$row++] }, $line;
-	# if ($opt->color) { colored_output($line) } else { print "$line"; }
+	#if ($opt->color) { colored_output($line) } else { print "$line"; }
       }
     } print "\n";
   }
