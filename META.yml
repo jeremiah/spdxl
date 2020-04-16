@@ -1,7 +1,7 @@
 ---
 abstract: 'perl library with subroutines for the spdxl.pl script'
 author:
-  - ', Jeremiah C. Foster <jeremiah@jeremiahfoster.com>'
+  - 'Jeremiah C. Foster <jeremiah@jeremiahfoster.com>'
 build_requires:
   ExtUtils::MakeMaker: 6.36
 configure_requires:
