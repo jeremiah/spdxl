@@ -1,11 +1,13 @@
 [![forthebadge](https://forthebadge.com/images/badges/no-ragrets.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/compatibility-emacs.svg)](https://forthebadge.com)
+![REUSE Compliance Check](https://github.com/jeremiah/spdxl/workflows/REUSE%20Compliance%20Check/badge.svg)
+
 # spdxl 
 
-This is alpha quality software!
+This is mostly just a toy. 
 
 spdxl (pronounced spud-exel) is a tool that checks source 
-code looking for SPDX version 2.0 "tags" and produces a text-based output
+code looking for a SPDX version 2.0 "tag" and produces a text-based output
 on the command line. Designed to be used in conjunction with Debian's licensecheck
 it provides a way to ensure that all the files are correctly licensed and that 
 you can created a complete SPDX document. 
@@ -39,7 +41,7 @@ Patches and pull requests are welcomed.
 ## See also 
 [ninka](https://github.com/dmgerman/ninka)
 [lint-bom](https://git.fsfe.org/reuse/bom-nodejs/src/master/src/lint-bom) 
-[reuse](https://github.com/fsfe/reuse-tool) 
+[reuse](https://github.com/fsfe/reuse-tool) The reuse tool also has an action as well.
 
 You can get tools that convert tags to spreadsheets here:
 https://github.com/goneall/SPDX-Tools
