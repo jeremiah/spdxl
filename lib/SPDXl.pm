@@ -23,13 +23,13 @@ This file holds various subroutines that spdxl.pl reuses.
 
 =head1 LICENSE
 
- SPDX-License-Identifier: GPL-3.0
- This file is part of the SPDXL package.
+ SPDX-License-Identifier: GPL-3.0-or-later
  SPDX-FileCopyrightText: 2015 Jeremiah C. Foster <jeremiah@jeremiahfoster.com>
+ This file is part of the SPDXL package.
 
 =over
 
- spdxl  -- license identifier with reporting
+ spdxl -- license identifier with reporting
 
  Copyright (C) 2015, Jeremiah C. Foster <jeremiah@jeremiahfoster.com>
 
