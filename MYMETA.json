@@ -1,10 +1,10 @@
 {
    "abstract" : "perl library with subroutines for the spdxl.pl script",
    "author" : [
-      ", Jeremiah C. Foster <jeremiah@jeremiahfoster.com>"
+      "Jeremiah C. Foster <jeremiah@jeremiahfoster.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Module::Install version 1.19, CPAN::Meta::Converter version 2.150010",
+   "generated_by" : "Module::Install version 1.21, CPAN::Meta::Converter version 2.150010",
    "license" : [
       "open_source"
    ],
@@ -41,5 +41,5 @@
       ]
    },
    "version" : "0.1.1",
-   "x_serialization_backend" : "JSON::PP version 4.02"
+   "x_serialization_backend" : "JSON::PP version 4.07"
 }

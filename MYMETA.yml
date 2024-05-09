@@ -1,13 +1,13 @@
 ---
 abstract: 'perl library with subroutines for the spdxl.pl script'
 author:
-  - ', Jeremiah C. Foster <jeremiah@jeremiahfoster.com>'
+  - 'Jeremiah C. Foster <jeremiah@jeremiahfoster.com>'
 build_requires:
   ExtUtils::MakeMaker: '6.36'
 configure_requires:
   ExtUtils::MakeMaker: '0'
 dynamic_config: 0
-generated_by: 'Module::Install version 1.19, CPAN::Meta::Converter version 2.150010'
+generated_by: 'Module::Install version 1.21, CPAN::Meta::Converter version 2.150010'
 license: open_source
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
