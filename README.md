@@ -1,4 +1,4 @@
-[![forthebadge](https://forthebadge.com/images/badges/compatibility-emacs.svg)](https://forthebadge.com)
+[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 ![REUSE Compliance Check](https://github.com/jeremiah/spdxl/workflows/REUSE%20Compliance%20Check/badge.svg)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/jeremiah/spdxl/badge)](https://scorecard.dev/viewer/?uri=github.com/jeremiah/spdxl)
 # spdxl 
@@ -8,8 +8,6 @@ code looking for a SPDX version 2.0 "tag" and produces a text-based output
 on the command line. Designed to be used in conjunction with Debian's licensecheck
 it provides a way to ensure that all the files are correctly licensed and that 
 you can created a complete SPDX document. 
-
-[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
 ## Install
 
