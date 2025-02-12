@@ -1,7 +1,5 @@
 # Roadmap 
 
-SPDX-License-Identifier: CC-BY-4.0
-
 This is the roadmap of spdxl. The current plan is to
 recursively search directories looking for all files.
 
@@ -46,3 +44,7 @@ Do we want to query Debian-sources to see if we can find our package and check t
 
  Create a database in this format?
 filename | SHA256 sum | license guestimate
+
+### Copyright and license
+Copyright &copy; 2025 Jeremiah C. Foster <jeremiah@jeremiahfoster.com> 
+SPDX-License-Identifier: CC-BY-4.0
