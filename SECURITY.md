@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2015 Jeremiah C. Foster <https://jeremiahfoster.com> 
+# SPDX-License-Identifier: CC-BY-4.0
+
 # Security Policy
 
 ## Supported Versions
