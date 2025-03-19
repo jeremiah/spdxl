@@ -1,6 +1,7 @@
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 ![REUSE Compliance Check](https://github.com/jeremiah/spdxl/workflows/REUSE%20Compliance%20Check/badge.svg)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/jeremiah/spdxl/badge)](https://scorecard.dev/viewer/?uri=github.com/jeremiah/spdxl)
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/142/badge)](https://www.bestpractices.dev/projects/142)
 # spdxl 
 
 spdxl (pronounced spud-exel) is a tool that checks source 
