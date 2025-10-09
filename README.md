@@ -49,3 +49,7 @@ https://github.com/goneall/SPDX-Tools
 Copyright (c) 2015 Jeremiah C. Foster
 
 Source code licensed under the GPLv3
+
+# SPDX-FileCopyrightText: 2025 Jeremiah C. Foster <https://jeremiahfoster.com>
+#
+# SPDX-License-Identifier: CC0-1.0
